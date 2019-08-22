@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!--开发者模式  开启可以看到更多的打印信息并且错误信息将会显示到页面中-->
+	<constant name="struts.devMode" value="false" />
+
+	<!--
+		指定上传文件的临时存放路径，如果不指定，会提示：
+		“Unable to find 'struts.multipart.saveDir' property setting. Defaulting to javax.servlet.context.tempdir”
+		然后默认会选择javax.servlet.context.tempdir，也就是tomcat下的temp目录作为临时文件存储路径。
+	-->
+	<constant name="struts.multipart.saveDir" value="/tmp"/>
+
+	<!--指定struts2拦截的url的后缀名，只有后缀名为“.action”才会被拦截-->
+	<constant name="struts.action.extension" value="action"/>
+
+	<!--指定一次性上传文件的总大小，超过则会被upload拦截器拦截，报“Request exceeded size limit!”异常。默认2M, -1为nolimit-->
+	<constant name="struts.multipart.maxSize" value="52428800"/><!--52428800 = 50M-->
+
+    <package name="basicstruts2" extends="struts-default">
+        <!--使用Shiro框架管理登录权限，不再使用拦截器控制用户的登录权限-->
+        <!--<interceptors>
+            &lt;!&ndash; 注册一个自定义拦截器 &ndash;&gt;
+            <interceptor name="loginInterceptor" class="com.zakj.swkj.web.interceptor.LoginInterceptor">
+                <param name="excludeMethods">login</param>
+            </interceptor>
+            &lt;!&ndash; 定义拦截器栈 &ndash;&gt;
+            <interceptor-stack name="myStack">
+                <interceptor-ref name="loginInterceptor"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="myStack"/>-->
+
+        <!-- 全局结果集定义 -->
+        <global-results>
+            <result name="login" type="redirect">/login.jsp</result>
+			<result name="unauthorized">/unauthorized.jsp</result>
+        </global-results>
+
+        <!-- 需要进行权限控制的页面访问 -->
+        <action name="page_*_*">
+            <result type="dispatcher">/WEB-INF/pages/{1}/{2}.jsp</result>
+        </action>
+
+        <!-- 用户管理 -->
+        <action name="userAction_*" class="userAction" method="{1}">
+            <result name="home" type="redirect">/index.jsp</result>
+        </action>
+
+		<!-- 角色管理 -->
+		<action name="roleAction_*" class="roleAction" method="{1}">
+
+		</action>
+
+		<!-- 权限管理 -->
+		<action name="functionAction_*" class="functionAction" method="{1}">
+
+		</action>
+
+		<!-- 产品管理 -->
+		<action name="productAction_*" class="productAction" method="{1}">
+			<result name="list">/WEB-INF/pages/base/product.jsp</result>
+			<param name="saveDir">/pictures/product</param>
+		</action>
+
+		<!-- 产品系列管理 -->
+		<action name="seriesAction_*" class="seriesAction" method="{1}">
+			<result name="list">/WEB-INF/pages/base/productSeries.jsp</result>
+			<param name="saveDir">/pictures/productSeries</param>
+		</action>
+
+		<!-- 热销产品管理 -->
+		<action name="hotProductAction_*" class="hotProductAction" method="{1}">
+		</action>
+
+		<!-- 热销系列管理-->
+		<action name="hotSeriesAction_*" class="hotSeriesAction" method="{1}">
+		</action>
+
+		<!-- 新闻管理 -->
+		<action name="news_*" class="newsAction" method="{1}">
+			<param name="saveDir">/pictures/news</param>
+		</action>
+
+        <!-- 首页模块管理 -->
+        <action name="frontAction_*" class="frontAction" method="{1}">
+            <param name="saveDir">/pictures/front</param>
+        </action>
+
+        <!-- 首页模块管理 -->
+        <action name="factoryAction_*" class="factoryAction" method="{1}">
+        </action>
+		<!-- 联系我们管理 -->
+		<action name="contactAction_*" class="contactAction" method="{1}">
+			<param name="saveDir">/pictures/contact</param>
+		</action>
+
+		<!--//TODO  测试freemarker的action-->
+		<!--<action name="freeMarkerAction" class="freeMarkerTestAction" method="genHtml"/>-->
+	</package>
+</struts>

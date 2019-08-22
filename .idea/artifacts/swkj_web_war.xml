@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="swkj-web:war">
+    <output-path>$PROJECT_DIR$/swkj-core/swkj-web/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>swkj-web</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="swkj-web.war">
+      <element id="artifact" artifact-name="swkj-web:war exploded" />
+    </root>
+  </artifact>
+</component>

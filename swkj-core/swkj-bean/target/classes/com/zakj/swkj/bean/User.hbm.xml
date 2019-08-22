@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.zakj.swkj.bean.User" table="t_user">
+        <id name="id" type="java.lang.String">
+            <column name="id" length="48" />
+            <generator class="assigned" />
+        </id>
+        <property name="username" type="java.lang.String">
+            <column name="username" length="20" not-null="true" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="password" length="32" not-null="true" />
+        </property>
+        <property name="telephone" type="java.lang.String">
+            <column name="telephone" length="11" />
+        </property>
+        <set name="roles" table="user_role" >
+            <key>
+                <column name="user_id" length="32" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.zakj.swkj.bean.Role">
+                <column name="role_id" length="32" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

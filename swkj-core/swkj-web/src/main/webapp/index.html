@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>主页</title>
+
+    <script type="text/javascript" src="js/bvapi.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.modalEffects.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/select2.full.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/animate.css"/>
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/global.css"/>
+    <link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css"/>
+    <link rel="stylesheet" type="text/css" href="css/modal.css"/>
+    <link rel="stylesheet" type="text/css" href="css/select2.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/pageSwitch.min.css"/>
+</head>
+
+<body>
+<!--头部开始-->
+<header class="animated fadeInDown">
+    <div class="container">
+        <a href="index.html" title="广州化妆品有限公司">
+            <h1 class="logo"><img src="image/2017320113510587.jpg" alt="广州化妆品有限公司"/></h1></a>
+        <div class="navigation">
+            <ul class="primary">
+                <li><a class="active" href="index.html">主页</a></li>
+                <li><a href="product/products.html">产品</a></li>
+                <li><a href="selling.html">热销</a></li>
+                <li><a href="ODM.html">OEM/ODM</a>
+                    <ul>
+                        <li class="li-1"><a href="ODM.html">服务项目</a></li>
+                        <li class="li-1"><a href="process.html">加工流程</a></li>
+                    </ul>
+                </li>
+                <li><a href="factory.html">工厂</a></li>
+                <li><a href="news/news.html">新闻</a></li>
+                <li><a href="contact.html">联系我们</a></li>
+            </ul>
+            <ul class="language">
+                <li><a href="index.html">中文版</a></li>
+                <li><a href="#">English</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</header>
+
+<!--内容开始-->
+<div class="wrapper container">
+    <div id="container">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        暂无此内容！
+    </div>
+    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="js/pageSwitch.min.js"></script>
+    <script>
+        $("#container").PageSwitch({
+            direction: 'horizontal',
+            easing: 'ease-in',
+            duration: 1000,
+            autoPlay: true,
+            loop: 'false'
+        });
+    </script>
+
+    <hr>
+    +
+    <div class="clearfix"></div>
+    <div class="newsletter">
+        <div class="row">
+            <div class="col-md-8"><i class="icon-newsletter"></i>
+                <h3>我们的博客！</h3>
+                <p>
+                <p>查看更多关于<a href="#">我们的博客！</a></p>
+                </p>
+            </div>
+            <div class="col-md-4 newsletter-form">
+                <h3>订阅我们的电子报</h3>
+                <form name="emailform" method="POST" action="#" onSubmit="return chkemail(this);">
+                    <input name="email" id="email" type="email" value="">
+                    <button type="submit" class="btn">提交</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--内容结束-->
+<!--版权开始-->
+<footer class="container">
+    <div class="wrapper">
+        <div class="row">
+            <div class="col-sm-4 footer-text">版权所有@广州化妆品有限公司，洛杉矶，CA，美国90017&nbsp;&nbsp;
+
+                <script type="text/javascript">var _paq = _paq || [];
+                ;_paq.push(["setDomains", ["*"]]);
+                _paq.push(['trackPageView']);
+                _paq.push(['enableFormTracking']);
+                _paq.push(['enableLinkTracking']);
+                _paq.push(['enableTPF']);
+                (function () {
+                    var u = "//ta.sbird.xyz/";
+                    _paq.push(['setTrackerUrl', u + 'ta.gif']);
+                    _paq.push(['setSiteId', '006fbd5616dd132d995c1576827a3702']);
+                    var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+                    g.type = 'text/javascript';
+                    g.async = true;
+                    g.defer = true;
+                    s.parentNode.insertBefore(g, s);
+                })();</script>
+            </div>
+            <div class="col-sm-8 footer-links">
+                <ul>
+                    <li><a href="product/products.html">产品</a></li>
+                    <li><a href="selling.html">热销</a></li>
+                    <li><a href="factory.html">工厂</a></li>
+                    <li><a href="contact.html">联系我们</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--<script>-->
+<!--(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){-->
+<!--(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),-->
+<!--m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)-->
+<!--});-->
+
+<!--</script>-->
+<!--版权结束-->
+<style type="text/css">
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    html, body {
+        height: 100%;
+    }
+
+    #container {
+        width: 100%;
+        height: 500px;
+        overflow: hidden;
+    }
+
+    .sections, .section {
+        height: 100%;
+    }
+
+    #container, .sections {
+        position: relative;
+    }
+
+    .section {
+        background-color: #000;
+        background-size: cover;
+        background-position: 50% 50%;
+        text-align: center;
+        color: white;
+    }
+
+    #section0 {
+        background-image: url(image/1.jpg)
+    }
+
+    #section1 {
+        background-image: url(image/2.jpg)
+    }
+
+    #section2 {
+        background-image: url(image/3.jpg)
+    }
+
+    #section3 {
+        background-image: url(image/4.jpg)
+    }
+</style>
+</body>
+</html>

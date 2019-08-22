@@ -1,0 +1,28 @@
+项目采用MVC架构思想：
+struts2负责web
+hibernate负责dao
+spring负责整合web,dao，service
+
+为了降低各层间的耦合性：
+1、web层（struts2）的代码不要出现javaEE相关的代码，例如Servlet、Session、Request等等，而且web层调用service层方法，
+    需要通过Spring注解注入的方式注入service层的实例，使用service层的接口调用其实例方法。
+
+2、service层的代码不要出现web层（struts2）的代码，例如ServletActionContext，但是可以出现javaEE相关的代码（因为必须运行Servlet容器中，
+    service层代码才有意义）。调用dao层方法，需要通过Spring注解依赖注入的方式注入dao层实例到service层，使用dao层的接口调用其实例方法。
+
+3、dao层的代码只做单纯的数据存取操作，不做任何逻辑处理和事务处理，事务交给service层进行通过Spring的AOP事务进行管理。
+
+
+idea虐爆eclipse的地方：
+1、支持hibernate框架，可以直接测试hql语句，智能关联hibernate的bean配置文件，并与连接的数据库对应，比对是否配置出错。
+    可以智能根据数据库的表，生成hibernate的配置文件，或者是bean类。
+
+2、可以直接连接各种数据库，并操作数据库（增删改查）
+
+3、alt+enter键智能进行意图提示，例如创建一个没有的方法，给接口的定义的方法在实现类中进行实现。
+
+4、TODO 任务提示
+
+5、js代码优化提示，java代码优化提示等。
+
+6、

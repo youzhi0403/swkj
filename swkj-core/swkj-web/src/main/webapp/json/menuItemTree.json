@@ -1,0 +1,52 @@
+[
+  {
+    "text": "信息管理",
+    "children": [
+      {
+        "text": "首页模块管理",
+        "attributes": {
+          "url": "${pageContext.request.contextPath}/page_base_front.action"
+        }
+      },
+      {
+        "text": "产品模块管理",
+        "attributes": {
+          "url": "${pageContext.request.contextPath}/page_base_product.action"
+        },
+        "children": [
+          {
+            "text": "产品系列管理",
+            "attributes": {
+              "url": "${pageContext.request.contextPath}/page_base_productSeries.action"
+            }
+          }
+        ]
+      },
+      {
+        "text": "热销模块管理",
+        "attributes": {
+          "url": "${pageContext.request.contextPath}/page_base_hot.action"
+        }
+      },
+      {
+        "text": "工厂模块管理",
+        "attributes": {
+          "url": "${pageContext.request.contextPath}/page_base_factory.action"
+        }
+      },
+      {
+        "text": "新闻模块管理",
+        "attributes": {
+          "url": "${pageContext.request.contextPath}/page_base_news.action"
+        }
+      },
+      {
+        "text": "联系我们模块管理",
+        "attributes": {
+          "url": "${pageContext.request.contextPath}/page_base_contact.action"
+        }
+      }
+    ]
+  }
+]
+

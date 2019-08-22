@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.zakj.swkj.bean.Product" table="product" >
+        <id name="id" type="java.lang.String">
+            <column name="id" length="48" />
+            <generator class="assigned" />
+        </id>
+        <property name="product_name" type="java.lang.String">
+            <column name="product_name" />
+        </property>
+        <property name="product_number" type="java.lang.String">
+            <column name="product_number" />
+        </property>
+        <property name="product_desc" type="java.lang.String">
+            <column name="product_desc" />
+        </property>
+        <property name="usage" type="java.lang.String">
+            <column name="p_usage" />
+        </property>
+        <property name="page_url" type="java.lang.String">
+            <column name="page_url" />
+        </property>
+        <property name="capacity" type="java.math.BigDecimal">
+            <column name="capacity" />
+        </property>
+        <property name="function" type="java.lang.String">
+            <column name="p_function" />
+        </property>
+        <property name="picture_url" type="java.lang.String">
+            <column name="picture_url" />
+        </property>
+        <property name="create_time" type="java.lang.String">
+            <column name="create_time" />
+        </property>
+        <property name="target_problem" type="java.lang.String">
+            <column name="target_problem" />
+        </property>
+        <property name="direction" type="java.lang.String">
+            <column name="direction" />
+        </property>
+        <property name="isRec" type="java.lang.String">
+            <column name="isRec" />
+        </property>
+        <property name="isHot" type="java.lang.String">
+            <column name="isHot" />
+        </property>
+        <many-to-one lazy="false" name="series" column="series_id" entity-name="com.zakj.swkj.bean.Series"/>
+    </class>
+</hibernate-mapping>

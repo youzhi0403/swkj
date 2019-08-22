@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.zakj.swkj.bean.Series" table="p_series" >
+        <id name="id" type="java.lang.Long">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="page_url" type="java.lang.String">
+            <column name="page_url" />
+        </property>
+        <property name="hotPage_url" type="java.lang.String">
+            <column name="hotPage_url" />
+        </property>
+        <property name="picture_url" type="java.lang.String">
+            <column name="picture_url" />
+        </property>
+        <property name="s_name" type="java.lang.String">
+            <column name="s_name" />
+        </property>
+        <set name="products" inverse="true" lazy="false">
+            <key>
+                <column name="series_id" not-null="true"/>
+            </key>
+            <one-to-many entity-name="com.zakj.swkj.bean.Product"/>
+        </set>
+    </class>
+</hibernate-mapping>

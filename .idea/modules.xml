@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/swkj.iml" filepath="$PROJECT_DIR$/.idea/swkj.iml" />
+      <module fileurl="file://$PROJECT_DIR$/swkj-core/swkj-bean/swkj-bean.iml" filepath="$PROJECT_DIR$/swkj-core/swkj-bean/swkj-bean.iml" />
+      <module fileurl="file://$PROJECT_DIR$/swkj-core/swkj-core.iml" filepath="$PROJECT_DIR$/swkj-core/swkj-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/swkj-core/swkj-dao/swkj-dao.iml" filepath="$PROJECT_DIR$/swkj-core/swkj-dao/swkj-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/swkj-root/swkj-root.iml" filepath="$PROJECT_DIR$/swkj-root/swkj-root.iml" />
+      <module fileurl="file://$PROJECT_DIR$/swkj-core/swkj-service/swkj-service.iml" filepath="$PROJECT_DIR$/swkj-core/swkj-service/swkj-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/swkj-utils/swkj-utils.iml" filepath="$PROJECT_DIR$/swkj-utils/swkj-utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/swkj-core/swkj-web/swkj-web.iml" filepath="$PROJECT_DIR$/swkj-core/swkj-web/swkj-web.iml" />
+    </modules>
+  </component>
+</project>

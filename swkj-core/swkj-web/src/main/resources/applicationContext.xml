@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context.xsd
+						http://www.springframework.org/schema/tx
+						http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!-- 加载属性文件 -->
+    <!--jdbc配置文件-->
+    <context:property-placeholder location="classpath:db.properties"/>
+    <!--freemarker配置文件-->
+    <context:property-placeholder location="classpath:resource.properties" />
+
+    <!-- 配置数据源 -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${jdbc.driverClass}"/>
+        <property name="jdbcUrl" value="${jdbc.jdbcUrl}"/>
+        <property name="user" value="${jdbc.user}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
+    <!-- 配置LocalSessionFactoryBean，spring提供的用于整合hibernate的工厂bean -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <!-- 注入hibernate相关的属性配置 -->
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.format_sql">true</prop>
+            </props>
+        </property>
+        <!-- 注入hibernate的映射文件 -->
+        <property name="mappingLocations">
+            <list>
+                <value>classpath:com/zakj/swkj/bean/*.xml</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- 配置事务管理器 -->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!-- 组件扫描 : 自动扫描指定包下的所有组件，如@Component，@Service，@Controller，@Repository注解的类-->
+    <context:component-scan base-package="com.zakj.swkj"/>
+
+    <!-- 支持spring注解 -->
+    <context:annotation-config/>
+
+    <!-- 支持事务注解 -->
+    <tx:annotation-driven/>
+
+    <!--整合freemarker-->
+    <bean id="freemarkerConfig"	class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath" value="/WEB-INF/ftl/" />
+        <!-- 设置页面中文乱码问题 -->
+        <property name="freemarkerSettings">
+            <props>
+                <prop key="defaultEncoding">UTF-8</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- 配置shiro框架的过滤器工厂对象 -->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <!-- 注入安全管理器对象 -->
+        <property name="securityManager" ref="securityManager"/>
+        <!-- 注入相关页面访问URL -->
+        <property name="loginUrl" value="/login.jsp"/>
+        <property name="successUrl" value="/WEN-INF/pages/base/main.jsp"/>
+        <property name="unauthorizedUrl" value="/unauthorized.jsp"/>
+        <!--注入URL拦截规则 -->
+        <property name="filterChainDefinitions">
+            <value>
+                /css/** = anon    <!--anon: 直接放行，不进行权限控制-->
+                /js/** = anon
+                /image/** = anon
+                /pictures/** = anon
+                /login.jsp = anon
+                /contact.html = anon
+                /factory.html = anon
+                /selling.html = anon
+                /process.html = anon
+                /ODM.html = anon
+                /index.html = anon
+                /userAction_login.action = anon
+                /news/** = anon
+                /product/** = anon
+                /hotProduct/** = anon
+                /contact/** = anon
+                / = anon
+                /** = authc
+            </value>
+        </property>
+    </bean>
+
+    <!--下面开启Shiro的注解-->
+    <!-- 注册安全管理器对象 -->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="bosRealm"/>
+    </bean>
+    <!-- 注册realm -->
+    <bean id="bosRealm" class="com.zakj.swkj.service.realm.CustomRealm"/>
+
+</beans>

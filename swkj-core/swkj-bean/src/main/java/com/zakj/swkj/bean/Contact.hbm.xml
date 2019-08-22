@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.zakj.swkj.bean.Contact" table="contact" >
+        <id name="id" type="java.lang.String">
+            <column name="id" length="48" />
+            <generator class="assigned" />
+        </id>
+
+        <property name="picture_url" type="java.lang.String">
+            <column name="picture_url"/>
+        </property>
+
+        <property name="USA_office" type="java.lang.String">
+            <column name="usa_office"/>
+        </property>
+
+        <property name="USA_email" type="java.lang.String">
+            <column name="usa_email" />
+        </property>
+
+        <property name="CN_agency" type="java.lang.String">
+            <column name="cn_agency"/>
+        </property>
+
+        <property name="factory_address" type="java.lang.String">
+            <column name="factory_address"/>
+        </property>
+
+        <property name="CN_office" type="java.lang.String">
+            <column name="cn_office"/>
+        </property>
+
+        <property name="CN_email" type="java.lang.String">
+            <column name="cn_email"/>
+        </property>
+
+        <property name="phone" type="java.lang.String">
+            <column name="phone"/>
+        </property>
+
+        <property name="website_address" type="java.lang.String">
+            <column name="website_address"/>
+        </property>
+
+        <property name="page_url" type="java.lang.String">
+            <column name="page_url"/>
+        </property>
+
+
+    </class>
+</hibernate-mapping>
