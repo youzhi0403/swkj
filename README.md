@@ -54,7 +54,7 @@
 
 4.用IntelliJ IDEA运行项目。
 
-5.通过http://localhost:8080/swkj_web_war_exploded/i访问门户网站，通过http://localhost:8080/swkj_web_war_exploded/login.jsp访问后台管理系统。
+5.通过 http://localhost:8080/swkj_web_war_exploded/ 访问门户网站，通过 http://localhost:8080/swkj_web_war_exploded/login.jsp 访问后台管理系统。
 
 **PS：项目运行时由类自动生成数据库表。**
 
