@@ -10,9 +10,17 @@
 整体效果
 
 门户网站
-
+![Image text](https://github.com/youzhi0403/swkj/blob/master/README_PICTURE/p1.png)
 
 后台管理系统
+
+登录界面
+
+![Image text](https://github.com/youzhi0403/swkj/blob/master/README_PICTURE/p2.png)
+
+系统界面
+
+![Image text](https://github.com/youzhi0403/swkj/blob/master/README_PICTURE/p3.png)
 
 技术栈
 
