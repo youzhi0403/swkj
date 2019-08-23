@@ -27,22 +27,22 @@
 
 ## 后端技术栈
 
-1.spring 4.24\<br>
-2.hibernate 5.0.7
-3.struts2 2.3.24
-4.freemarker 2.3.22
-5.shiro 1.2.3
-6.log4j 1.2.12
-7.slf4j 1.6.6
-8.maven 3.6.1
-9.mysql
+1.spring 4.24  
+2.hibernate 5.0.7  
+3.struts2 2.3.24  
+4.freemarker 2.3.22  
+5.shiro 1.2.3  
+6.log4j 1.2.12  
+7.slf4j 1.6.6  
+8.maven 3.6.1  
+9.mysql  
 
 ## 前端技术栈
 
-1.jquery
-2.ztree
-3.kindeditor
-4.easyui
+1.jquery  
+2.ztree  
+3.kindeditor  
+4.easyui  
 
 # 快速部署
 
